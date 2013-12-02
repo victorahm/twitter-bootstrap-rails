@@ -46,7 +46,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><%= app_name %></a>
+          <%%= link_to <%= app_name %>, root_path, :class => 'brand' %>
           <div class="<%= container_class %> nav-collapse">
             <ul class="nav">
               <li><%%= link_to "Link1", "/path1"  %></li>
@@ -61,6 +61,10 @@
     <div class="<%= container_class %>">
       <%- if layout_type == "fluid" -%>
       <div class="row-fluid">
+        <div class="span9">
+          <%%= bootstrap_flash %>
+          <%%= yield %>
+        </div>
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
@@ -71,10 +75,6 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
-          <%%= bootstrap_flash %>
-          <%%= yield %>
-        </div>
       </div><!--/row-->
       <%- else -%>
         <div class="row">

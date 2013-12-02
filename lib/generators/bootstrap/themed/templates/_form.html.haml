@@ -1,9 +1,11 @@
 = form_for @<%= resource_name %>, :html => { :class => 'form-horizontal' } do |f|
   <%- columns.each do |column| -%>
-  .control-group
+  .control-group(class=(@<%= resource_name%>.errors[:<%= column%>].any? ? 'error' : ''))
     = f.label :<%= column.name %>, :class => 'control-label'
     .controls
       = f.<%= column.field_type %> :<%= column.name %>, :class => '<%= column.field_type %>'
+      - if @<%= resource_name%>.errors[:<%= column%>].any?
+        %span.help-inline=@<%= resource_name%>.errors[:<%= column%>].join(",")
   <%- end -%>
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
