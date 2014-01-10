@@ -1,6 +1,6 @@
 <%%= form_for @<%= resource_name %>, :html => { :class => 'form-horizontal' } do |f| %>
   <%- columns.each do |column| -%>
-  <div class="control-group <%%= 'error' if @<%= resource_name%>.errors[:<%= column%>].any? %> ">
+  <div class="control-group <%%= 'error' if @<%= resource_name%>.errors[:<%= column.name %>].any? %> ">
     <%%= f.label :<%= column.name %>, :class => 'control-label' %>
     <div class="controls">
       <%%= f.<%= column.field_type %> :<%= column.name %>, :class => '<%= column.field_type %>' %>
