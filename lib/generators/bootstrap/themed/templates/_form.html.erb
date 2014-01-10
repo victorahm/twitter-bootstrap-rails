@@ -4,8 +4,8 @@
     <%%= f.label :<%= column.name %>, :class => 'control-label' %>
     <div class="controls">
       <%%= f.<%= column.field_type %> :<%= column.name %>, :class => '<%= column.field_type %>' %>
-      <%% if @<%= resource_name%>.errors[:<%= column%>].any? %>
-        <span class="help-inline"><%%= @<%= resource_name%>.errors[:<%= column%>].join(",") %></span>
+      <%% if @<%= resource_name%>.errors[:<%= column.name %>].any? %>
+        <span class="help-inline"><%%= @<%= resource_name%>.errors[:<%= column.name %>].join(",") %></span>
       <%%- end%>
     </div>
   </div>
