@@ -1,13 +1,14 @@
 # Bootstrap for Rails Asset Pipeline
 Bootstrap is a toolkit designed to kickstart development of webapps and sites. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more.
 
-twitter-bootstrap-rails project integrates Bootstrap CSS toolkit for Rails Asset Pipeline (Rails 3.1, 3.2 and 4.0 supported)
+twitter-bootstrap-rails project integrates Bootstrap CSS toolkit for Rails Asset Pipeline (Rails 4, 3.1, 3.2 are supported)
 
 [![Gem Version](https://badge.fury.io/rb/twitter-bootstrap-rails.png)][gem]
 [![Build Status](https://secure.travis-ci.org/seyhunak/twitter-bootstrap-rails.png?branch=master)][travis]
 [![Dependency Status](https://gemnasium.com/seyhunak/twitter-bootstrap-rails.png?travis)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/seyhunak/twitter-bootstrap-rails.png)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/seyhunak/twitter-bootstrap-rails/badge.png?branch=master)][coveralls]
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/seyhunak/twitter-bootstrap-rails/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 [gem]: https://rubygems.org/gems/twitter-bootstrap-rails
 [travis]: http://travis-ci.org/seyhunak/twitter-bootstrap-rails
@@ -67,6 +68,10 @@ Then run `bundle install` from the command line:
 Then run the bootstrap generator to add Bootstrap includes into your assets:
 
     rails generate bootstrap:install less
+
+If you need to skip coffeescript replacement into app generators, use:
+
+    rails generate bootstrap:install --no-coffeescript
 
 ### Installing the CSS stylesheets
 
@@ -432,7 +437,7 @@ menu_item generates a link wrapped in an li tag. It takes two arguments and an o
 
 ````
 <%= nav_bar :fixed => :top, :brand => "Ninety Ten" do %>
-    <% menu_group do %>
+    <%= menu_group do %>
         <%= menu_item "Home", root_path %>
         <%= menu_item "About Us", about_us_path %>
         <%= menu_item "Contact", contact_path %>
@@ -440,9 +445,9 @@ menu_item generates a link wrapped in an li tag. It takes two arguments and an o
     <% if current_user %>
         <%= menu_item "Log Out", log_out_path %>
     <% else %>
-        <% menu_group :pull => :right do %>
+        <%= menu_group :pull => :right do %>
             <%= menu_item "Sign Up", registration_path %>
-            <% form_for @user, :url => session_path(:user) do |f| -%>
+            <%= form_for @user, :url => session_path(:user) do |f| -%>
               <p><%= f.text_field :email %></p>
               <p><%= f.password_field :password %></p>
               <p><%= f.submit "Sign in" %></p>
@@ -683,39 +688,18 @@ for handling flash messages, even if those messages are blank. See https://githu
   <li>Leonid Shevtsov</li>
 </ul>
 
+### Contribute and Earn Bitcoin
+Make commits and get tips for it
+[![tip for next commit](http://tip4commit.com/projects/13.svg)](http://tip4commit.com/projects/13)
+
+
 ## About Me
-Lead/ Senior Developer - Programmer @useful (Usefulideas) Istanbul / Turkey
+CTO / Senior Developer / Programmer
+@useful (Usefulideas) Istanbul / Turkey
+
 
 ### Contact me
 Seyhun Akyürek - seyhunak [at] gmail com
-
-### Follow me
-<a href="http://zerply.com/seyhunak">
-<img width="110" height="40" src="http://zerply.com/img/welcomesteps/zerply_logo.png" />
-</a>
-
-(Twitter, Facebook, Linkedin, Google+, Github)
-
-http://zerply.com/seyhunak
-
-### Endorse me
-<a href="http://coderwall.com/seyhunak">
-<img src="http://api.coderwall.com/seyhunak/endorsecount.png" />
-</a>
-
-### Klout me
-<img src="https://addons.opera.com/media/extensions/55/14355/1.0.1-rev1/icons/icon_64x64.png"></img>
-
-Please +K my influence in Ruby on Rails on @klout
-
-http://klout.com/#/seyhunak
-
-
-### Want to donate?
-<img src="https://www.paypalobjects.com/en_US/i/logo/PayPal_mark_50x34.gif"></img>
-
-[Want to donate for my efforts? Show your love](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W8ZLWQBREFP4U
- "Donate")
 
 
 ## Thanks
@@ -724,7 +708,7 @@ http://twbs.github.io/bootstrap
 
 
 ## License
-Copyright (c) 2012 Seyhun Akyürek
+Copyright (c) 2014 Seyhun Akyürek
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
